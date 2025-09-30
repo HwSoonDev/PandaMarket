@@ -17,14 +17,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// 정적 파일 서빙
-app.use(express.static(path.join(__dirname, '../frontend/.next')));
-
-// SPA 라우팅 처리 (React Router 등)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/build/index.html'));
-});
-
 /* 오류 검사 핸들러 */
 function asyncHandeler(handler) {
     return async function (req, res) {
